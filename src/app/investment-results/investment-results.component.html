@@ -1,0 +1,47 @@
+<!-- if statement for old versions of angular -->
+<!-- <p *ngIf="!results">Please enter some values and press "Calculate".</p> -->
+
+<!-- if statement for modern angular -->
+ <!-- SIGNAL -->
+<!-- @if (!results()) { if resulth is not truthy/true -->
+
+ <!-- METHOD 2: SERVICE -->
+@if (!results()) {<!-- if resulth is not truthy/true-->
+    <p class="center">Please enter some values and press "Calculate".</p>
+
+ }@else {
+    <!-- <p>Results: {{ results }}</p> -->
+    <table>
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- <tr *ngFor="let data of results"> -->
+            <!-- OR -->
+            <!-- @for (result of results; track result.year) { -->
+            <!-- USING OUTPUT FUNCTION -->
+            <!-- @for (result of results(); track result.year) { -->
+
+            <!-- METHOD 2: SIGNAL -->
+            @for (result of results(); track result.year) {
+                <tr>
+                    <!-- display result using string interpolation e.g {{ ... }} -->
+                    <td>{{ result.year }}</td>
+                    <td>{{ result.interest | currency: "EUR" }}</td>
+                    <td>{{ result.valueEndOfYear | currency }}</td>
+                    <td>{{ result.totalAmountInvested | currency }}</td>
+                    <td>{{ result.totalInterest | currency }}</td>
+                </tr>
+            }
+
+        <!-- </tr> -->
+        </tbody>
+    </table>
+ }
+  

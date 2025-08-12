@@ -1,0 +1,24 @@
+<app-header />
+<!-- the (calculate) is gotten from the emitter on user-input.component.ts -->
+<!-- the ($event) is made available by Angular
+when using event binding to take that event data
+that was attached to the emitted custom event to the output,
+and then use it in any way you wanna use it -->
+
+<!-- <app-user-input (calculate)="onCalculateInvestmentResults($event)"/> -->
+<!-- METHOD 2: USING SERVICE -->
+<app-user-input />
+
+<!-- If you wanna use an image from the public folder,
+you don't put "public" into your image path.
+Instead, you immediately put your image file name e.g image.png-->
+
+<!-- bind the "results" property gotten from "invesment-results.components.ts" file on line 32 -->
+<!-- <app-investment-results [results]="resultsData" /> -->
+
+<!-- OR display the data using signal -->
+<!-- <app-investment-results [results]="resultsData()" /> -->
+<!-- METHOD 2: USING SERVICE -->
+<app-investment-results  />
+
+
